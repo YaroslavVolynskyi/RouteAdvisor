@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	<FrameLayout
+	    android:id="@+id/mapframe"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	  
+	    <fragment 
+	          android:id="@+id/map"
+	          android:layout_width="match_parent"
+	          android:layout_height="match_parent"
+	          android:name="com.google.android.gms.maps.MapFragment"/>
+	    
+	    <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical">
+	        
+	        <LinearLayout 
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal">
+		        
+		        <AutoCompleteTextView 
+		  	        android:id="@+id/searchingField"
+		  	        android:layout_height="wrap_content"
+		            android:layout_width="0dp"
+		            android:layout_weight="1"
+		            android:hint="@string/search_cities"
+		            android:layout_marginTop="2dp"
+		            android:layout_marginBottom="2dp"/>
+		  	    
+		        
+		  	    <ImageButton 
+		  	    	android:id="@+id/searchMyLocationButton"
+		  	        android:layout_height="wrap_content"
+		  	        android:layout_width="wrap_content"
+		  	        android:src="@drawable/ic_action_location_found"
+		  	        />
+	    	</LinearLayout>
+	    	
+	    	<LinearLayout 
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal">
+		        
+	    	    <Button
+		            android:id="@+id/searchButton"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		  	        android:layout_width="0dp"
+		  	        android:text="@string/search_city">
+	    	    </Button>
+	    	    
+		        <Button
+		            android:id="@+id/searchPlacesButton"
+		            android:layout_height="wrap_content"
+		  	        android:layout_width="wrap_content"
+		  	        android:text="@string/search_places" >
+		  	    </Button>
+		  	    
+		    </LinearLayout>
+		    
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_height="match_parent"
+	        android:layout_width="match_parent"
+	        android:orientation="vertical"
+	        android:gravity="bottom">
+	    	<SlidingDrawer 
+	    	    android:layout_width="match_parent" 
+			    android:id="@+id/SlidingDrawerMain" 
+			    android:handle="@+id/slideHandleLayoutMain" 
+			    android:content="@+id/contentExpandableListViewMain" 
+			    android:padding="10dip" 
+			    android:layout_height="350dip"
+			    >
+				<LinearLayout
+				    android:layout_width="500dp" 
+				    android:layout_height="60dp" 
+				    android:id="@+id/slideHandleLayoutMain" 
+				    android:background="#CCffffff">
+				    <TextView
+				        android:gravity="center"
+				        android:layout_width="match_parent" 
+				    	android:layout_height="wrap_content" 
+				    	android:text="@string/places_title"/>
+				</LinearLayout>
+				
+				<ExpandableListView 
+				    android:id="@+id/contentExpandableListViewMain"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content" 
+				    android:gravity="center|top" 
+				    android:padding="10dip" 
+				    android:background="#CCffffff"
+				    android:textAlignment="center">
+				</ExpandableListView>
+
+			</SlidingDrawer>
+	    </LinearLayout>
+	</FrameLayout>
+	
+	<ListView android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="2dp"
+        android:background="#111"/>
+</android.support.v4.widget.DrawerLayout>
